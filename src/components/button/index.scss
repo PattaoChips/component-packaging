@@ -1,0 +1,136 @@
+$primary:#409eff !default;
+$success:#00d100 !default;
+$warning:#e6a23c !default;
+$danger:#f56c6c !default;
+$button-space: 14px !default;
+$button-radius: 4px !default;
+.my-button {
+    height: 40px;
+    padding: 0 20px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #dcdfe6;
+    border-radius: $button-radius;
+    font-size: 14px;
+    color: #606266;
+    cursor: pointer;
+    + .my-button{
+        margin-left: $button-space;
+    }
+    >span {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .icon-prefix {
+        margin-right: 7px;
+    }
+
+    .icon-suffix {
+        margin-left: 7px;
+    }
+}
+
+.my-button[disabled] {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.my-button-primary {
+    background-color: $primary;
+    border-color: $primary;
+    color: #fff;
+
+    &.border {
+        background-color: transparent;
+        color: $primary;
+    }
+}
+
+.my-button-success {
+    background-color: $success;
+    border-color: $success;
+    color: #fff;
+
+    &.border {
+        background-color: transparent;
+        color: $success;
+    }
+}
+
+.my-button-warning {
+    background-color: $warning;
+    border-color: $warning;
+    color: #fff;
+
+    &.border {
+        background-color: transparent;
+        color: $warning;
+    }
+}
+
+.my-button-danger {
+    background-color: $danger;
+    border-color: $danger;
+    color: #fff;
+
+    &.border {
+        background-color: transparent;
+        color: $danger;
+    }
+}
+
+.round {
+    border-radius: 100px;
+}
+
+.my-button-meduim {
+    height: 36px;
+}
+
+.my-button-small {
+    padding: 0 15px;
+    height: 32px;
+    font-size: 12px;
+
+    .icon-prefix {
+        margin-right: 5px;
+    }
+
+    .icon-suffix {
+        margin-left: 5px;
+    }
+}
+
+.my-button-mini {
+    padding: 0 15px;
+    height: 28px;
+    font-size: 12px;
+
+    .icon-prefix {
+        margin-right: 5px;
+    }
+
+    .icon-suffix {
+        margin-left: 5px;
+    }
+}
+
+.my-button-block {
+    display: block;
+    width: 100%;
+}
+
+.icon-jiazai1 {
+    animation: loading 1.5s infinite linear;
+}
+
+@-webkit-keyframes loading {
+    0% {
+        -webkit-transform: rotate(0deg)
+    }
+    100% {
+        -webkit-transform: rotate(360deg)
+    }
+}
