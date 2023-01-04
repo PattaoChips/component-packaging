@@ -1,6 +1,6 @@
 <template>
   <div>
-    <my-table></my-table>
+    <my-table :columns="columns" checkbox border></my-table>
   </div>
 </template>
 <script>
@@ -9,7 +9,22 @@ export default {
   name: "Mytable",
   components: { "my-table": Mytable },
   data() {
-    return {};
+    return {
+      columns: [
+        {
+          type: "function",
+          label: "日期",
+          prop: "date",
+          width: "120",
+          callback: (data) => {
+            console.log(data);
+            return data.date;
+          },
+        },
+        { label: "姓名", prop: "name" },
+        { label: "地址", prop: "address" },
+      ],
+    };
   },
   created() {},
   computed: {},
