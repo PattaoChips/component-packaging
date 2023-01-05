@@ -25,8 +25,19 @@
           </template>
         </el-table-column>
         <el-table-column
+          v-if="item.type === 'slot'"
+          :key="item.id"
+          :prop="item.prop"
+          :label="item.label"
+          :width="item.width"
+        >
+          <template slot-scope="scope">
+            <slot :name="item.slotName" :data="scope.row"></slot>
+          </template>
+        </el-table-column>
+        <el-table-column
           v-else
-          :key="item.prop"
+          :key="item.id"
           :prop="item.prop"
           :label="item.label"
           :width="item.width"
@@ -48,36 +59,43 @@ export default {
     index: Boolean, // 索引号
     border: Boolean, // 带边框
     stripe: Boolean, // 带斑马纹的表格
+    url: {
+      type: String,
+      default: "",
+      require: true,
+    },
+    method: {
+      type: String,
+      default: "post",
+      require: true,
+    },
   },
   data() {
     return {
-      tableData: [
-        {
-          date: "2016-05-02",
-          name: "王小虎",
-          address: "上海市普陀区金沙江路 1518 弄",
-        },
-        {
-          date: "2016-05-04",
-          name: "王小虎",
-          address: "上海市普陀区金沙江路 1517 弄",
-        },
-        {
-          date: "2016-05-01",
-          name: "王小虎",
-          address: "上海市普陀区金沙江路 1519 弄",
-        },
-        {
-          date: "2016-05-03",
-          name: "王小虎",
-          address: "上海市普陀区金沙江路 1516 弄",
-        },
-      ],
+      tableData: [],
     };
   },
   created() {},
+  beforeMount() {
+    this.getTaleList();
+  },
   computed: {},
-  methods: {},
+  methods: {
+    getTaleList() {
+      const url = this.url;
+      if (!url) {
+        console.log("请求地址不存在");
+        return false;
+      }
+      this.$axios({
+        url: this.url,
+        methods: this.method,
+      }).then((res) => {
+        this.tableData = res.data.data;
+        console.log(res);
+      });
+    },
+  },
 };
 </script>
 <style lang="scss" scoped></style>
