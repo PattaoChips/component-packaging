@@ -3,6 +3,7 @@
     <div id="nav" class="font-size-25">
       <router-link to="/">Button组件</router-link> |
       <router-link to="/table">Table组件</router-link>|
+      <router-link to="/echarts">echarts组件</router-link>|
     </div>
     <router-view />
   </div>

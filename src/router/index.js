@@ -2,6 +2,7 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import Mybutton from "../views/Mybutton.vue";
 import Mytable from "../views/Mytable.vue";
+import Myecharts from "../views/Myecharts.vue";
 Vue.use(VueRouter);
 
 const routes = [
@@ -14,6 +15,11 @@ const routes = [
     path: "/table",
     name: "Mytable",
     component: Mytable,
+  },
+  {
+    path: "/echarts",
+    name: "Myecharts",
+    component: Myecharts,
   },
 ];
 
